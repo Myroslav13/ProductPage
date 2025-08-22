@@ -1,7 +1,12 @@
 import { useState } from 'react'
 
-function Product() {
-    const [countItems, setCountItems] = useState(0)
+interface Props {
+    countItems: number;
+    setCountItems: React.Dispatch<React.SetStateAction<number>>;
+    setAddToCart: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Product({countItems, setCountItems, setAddToCart}: Props) {
     const [activePhoto, setActivePhoto] = useState(0)
 
     return (
@@ -17,7 +22,7 @@ function Product() {
                 </div>
             </div>
 
-            <div className="col-12 col-lg-7 d-flex flex-column align-items-start my-auto" style={{height: "100%", padding: "0px 100px"}}>
+            <div className="col-12 col-lg-7 d-flex flex-column align-items-start my-auto" style={{height: "100%", paddingLeft: "100px"}}>
                 <h4 className='text-uppercase' style={{fontSize: "12px", letterSpacing: "2px"}}>Sneaker Company</h4>
 
                 <h1 className='fw-bold fs-1'>Fall Limited Edition Sneakers</h1>
@@ -38,7 +43,7 @@ function Product() {
                         <button className="btn-change-count" onClick={() => setCountItems(prev => prev + 1)}><img src="images/icon-plus.svg" alt="icon-plus"></img></button>
                     </div>
 
-                    <button className='btn-add-to-cart'>
+                    <button className='btn-add-to-cart' onClick={() => setAddToCart(true)}>
                         <i className="bi bi-cart2 pe-2"></i>
                         Add to cart
                     </button>
