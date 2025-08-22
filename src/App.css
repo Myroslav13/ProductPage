@@ -1,4 +1,5 @@
 #root {
+  padding: 0 8rem;
 }
 
 .logo {
@@ -35,4 +36,10 @@
 
 .read-the-docs {
   color: #888;
+}
+
+@media (max-width: 1200px) {
+  #root {
+    padding: 0 3rem;
+  }
 }

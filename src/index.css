@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --main-orange: #ff7d1b;
+  --second-orange: #ffac6a;
 }
 
 a {
@@ -57,4 +60,75 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.navbar-collapse a {
+  cursor: pointer;
+}
+
+h4 {
+  color: gray;
+}
+
+p {
+  color: gray;
+}
+
+.img-fluid {
+  cursor: pointer;
+}
+
+.img-thumb {
+  border: 3px solid transparent;
+  max-width: 80px;
+  border-radius: 15px;
+}
+
+.img-thumb img {
+  border-radius: 10px;
+}
+
+.img-thumb img:hover {
+  filter: opacity(0.5);
+}
+
+.img-thumb.active img{
+  filter: opacity(0.3);
+}
+
+.img-thumb.active{
+  border: 3px solid var(--main-orange);
+}
+
+.btn-add-to-cart {
+  background-color: var(--main-orange);
+  font-weight: bold;
+  font-size: 12px;
+  width: 180px;
+}
+
+.btn-add-to-cart:hover {
+  background-color: var(--second-orange);
+  border: none;
+}
+
+.img-avatar {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.img-avatar:hover {
+  border: 2px solid var(--main-orange);
+}
+
+.btn-change-count {
+  border: 1px solid transparent;
+}
+
+.btn-change-count:hover {
+  border: 1px solid transparent;
+}
+
+.btn-change-count:hover img {
+  filter: opacity(0.7);
 }
