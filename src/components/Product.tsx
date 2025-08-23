@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
     countItems: number;
@@ -10,6 +10,18 @@ function Product({countItems, setCountItems, setAddToCart}: Props) {
     const [activePhoto, setActivePhoto] = useState(0)
     const [activeModalPhoto, setActiveModalPhoto] = useState(0)
     const [isModalShowed, setIsModalShowed] = useState(false)
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth)
+            if (window.innerWidth < 768) {
+                setIsModalShowed(false)
+            }
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     return (
         <>
@@ -60,7 +72,7 @@ function Product({countItems, setCountItems, setAddToCart}: Props) {
                 </div>
             </div>
 
-            {(isModalShowed === true && window.innerWidth > 768) ?
+            {(isModalShowed === true && windowWidth >= 768) ?
                 <>
                     <div className="modal-backdrop fade show"></div>
                     
@@ -71,9 +83,11 @@ function Product({countItems, setCountItems, setAddToCart}: Props) {
                                     <button type="button" className="my-btn-close p-0" onClick={() => setIsModalShowed(false)}><img src="images/icon-close.svg"></img></button>
                                 </div>
                                 <div className="position-relative">
-                                    <button className="btn-modal-prev rounded-circle position-absolute" onClick={() => setActiveModalPhoto(prev => prev === 0 ? 3 : prev - 1)}><img src="images/icon-previous.svg"></img></button>
-                                    <img src={`images/image-product-${activeModalPhoto + 1}.jpg`} className='img-fluid rounded-4' style={{width: "100%"}} alt={`image-product-${activeModalPhoto + 1}`}></img>
-                                    <button className="btn-modal-next rounded-circle position-absolute" onClick={() => setActiveModalPhoto(prev => prev === 3 ? 0 : prev + 1)}><img src="images/icon-next.svg"></img></button>
+                                    <div className='d-flex align-items-center'>
+                                        <button className="btn-modal-prev rounded-circle position-absolute" onClick={() => setActiveModalPhoto(prev => prev === 0 ? 3 : prev - 1)}><img src="images/icon-previous.svg"></img></button>
+                                        <img src={`images/image-product-${activeModalPhoto + 1}.jpg`} className='img-fluid rounded-4' style={{width: "100%"}} alt={`image-product-${activeModalPhoto + 1}`}></img>
+                                        <button className="btn-modal-next rounded-circle position-absolute" onClick={() => setActiveModalPhoto(prev => prev === 3 ? 0 : prev + 1)}><img src="images/icon-next.svg"></img></button>
+                                    </div>
 
                                     <div className='d-flex align-items-center justify-content-center gap-4 mt-4'>
                                         <div className={`img-thumb ${activeModalPhoto === 0 ? "active": ""}`}><img src="images/image-product-1-thumbnail.jpg" className="img-fluid" onClick={() => setActiveModalPhoto(0)} alt="image-product-1-thumbnail"></img></div>

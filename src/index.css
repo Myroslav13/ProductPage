@@ -210,7 +210,6 @@ p {
 
 .my-btn-close {
   background-color: transparent;
-  filter: brightness(0) invert(1) contrast(100%);
 }
 
 .my-btn-close:hover {
@@ -222,10 +221,6 @@ p {
   height: 100%;
 }
 
-.my-btn-close:hover img {
-  inset: 0;
-}
-
 .img-product {
   width: 100%;
   border-radius: 15px;
@@ -233,6 +228,18 @@ p {
 
 .div-modal {
   display: none;
+}
+
+.btn-modal-next:hover img, .btn-modal-prev:hover img {
+  filter: invert(48%) sepia(88%) saturate(2846%) hue-rotate(359deg) brightness(101%) contrast(104%) !important;
+}
+
+.my-btn-close img {
+  filter: brightness(0) invert(1); 
+}
+
+.my-btn-close:hover img {
+  filter: invert(48%) sepia(88%) saturate(2846%) hue-rotate(359deg) brightness(101%) contrast(104%) !important; /* Помаранчевий при hover */
 }
 
 @media (max-width: 992px) {
@@ -260,6 +267,10 @@ p {
   .nav-link {
     font-weight: bold !important;
     cursor: pointer;
+  }
+
+ .nav-link:hover {
+    color: var(--main-orange);
   }
 }
 

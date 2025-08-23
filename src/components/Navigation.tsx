@@ -132,7 +132,7 @@ function Navigation({countItems, addToCart, setCountItems, setAddToCart}: Props)
                         </div>
                     </div>
                 </>
-                : 
+                :
                 <></>
             }
         </>
