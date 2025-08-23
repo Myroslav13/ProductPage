@@ -88,13 +88,18 @@ p {
 }
 
 .img-thumb {
-  border: 3px solid transparent;
   max-width: 80px;
-  border-radius: 15px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  padding: 0;
 }
 
 .img-thumb img {
-  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .img-thumb img:hover {
@@ -172,4 +177,58 @@ p {
 
 .img-cart:hover {
   filter: brightness(0);
+}
+
+.btn-modal-next, .btn-modal-prev {
+  top: 240px;
+  padding: 0;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+}
+
+.btn-modal-prev {
+  left: -25px;
+}
+
+.btn-modal-next {
+  right: -25px;
+}
+
+.btn-modal-prev:hover, .btn-modal-next:hover {
+  border: 1px solid white;
+}
+
+.btn-modal-prev img, .btn-modal-next img {
+  padding-bottom: 3px;
+  padding-right: 4px;
+}
+
+.btn-modal-next img {
+  padding-bottom: 3px;
+  padding-left: 6px;
+}
+
+.my-btn-close {
+  background-color: transparent;
+  filter: brightness(0) invert(1) contrast(100%);
+}
+
+.my-btn-close:hover {
+  border: 1px solid transparent;
+}
+
+.div-product-data {
+  padding-left: 100px;
+  height: 100%;
+}
+
+.my-btn-close:hover img {
+  inset: 0;
+}
+
+@media (max-width: 992px) {
+  .div-product-data {
+    padding-left: 0px;
+  }
 }
